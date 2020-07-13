@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Basic -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport">
+
+    <!-- Site Metas -->
+    <title>Spoura (Ecommerce)</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="../images/logo2.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="../images/logo2.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="../css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../ss/custom.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Start Main Top -->
+    <header class="main-header">
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
+            <div class="container">
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="https://matthew-harvey.github.io/Ecommerce/"><img src="../images/logo2.png" class="logo" alt="Logo" width="15%"><li class="nav-item" aria-expanded="false"></li></a>
+                </div>
+                <br></br>
+                <br></br>
+                <!-- End Header Navigation -->
+                <div class="attr-nav" id="navbar-menu">
+                    <ul>
+                        <li class="nav-item" aria-expanded="false"><a class="nav-link" href="https://matthew-harvey.github.io/Ecommerce/">Home</a></li>
+                        <li class="nav-item" aria-expanded="false"><a class="nav-link" href="https://matthew-harvey.github.io/Ecommerce/mens">Mens</a></li>
+                        <li class="nav-item" aria-expanded="false"><a class="nav-link" href="https://matthew-harvey.github.io/Ecommerce/womens">Womens</a></li>
+                        <li class="nav-item" aria-expanded="false"><a class="nav-link" href="https://matthew-harvey.github.io/Ecommerce/kids">Kids</a></li>
+                        <li class="nav-item" aria-expanded="false"><a class="nav-link" href="https://matthew-harvey.github.io/Ecommerce/about">About</a></li>
+                        <li class="nav-item" aria-expanded="false"><a class="nav-link" href="https://matthew-harvey.github.io/Ecommerce/contact">Contact Us</a></li>
+                        <li class="nav-item" aria-expanded="false"><a href="https://matthew-harvey.github.io/Ecommerce/account">Account</a></li>
+                        <li class="search"  aria-expanded="false"><a href="https://matthew-harvey.github.io/Ecommerce/search"><i class="fa fa-search"></i></a></li>
+                        <li class="side-menu"  aria-expanded="false"><a href="https://matthew-harvey.github.io/Ecommerce/cart">
+                        <i class="fa fa-shopping-bag"  aria-expanded="false"></i>
+                    </a></li>
+                    </ul>
+                </div>
+        </nav>
+        <!-- End Navigation -->
+    </header>
+    <!-- End Main Top -->
+
+    <!-- Start Top Search -->
+    <div class="top-search">
+        <div class="container">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                <input type="text" class="form-control" placeholder="Search">
+                <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+            </div>
+        </div>
+    </div>
+    <!-- End Top Search -->
+
+    <!-- Start All Title Box -->
+    <div class="all-title-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Cart</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End All Title Box -->
+
+    <!-- Start Cart  -->
+    <div class="cart-box-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-main table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Images</th>
+                                    <th>Product Name</th>
+                                    <th>Size</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                    <th>Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="Cart1">
+                                    <td class="thumbnail-img">
+									<img class="img-fluid" src="../images/woman-standing-wearing-red-dress-2609741.jpg" alt="" />
+								</a>
+                                    </td>
+                                    <td class="name-pr">
+									Red Dress (id: 3ufjioj398rydh9as)
+								</a>
+                                    </td>
+                                    <td class="size-pr">
+                                        <p>M</p>
+                                    </td>
+                                    <td class="price-pr">
+                                        <p>$ 65.00</p>
+                                    </td>
+                                    <td class="quantity-box"><input type="number" id="quant1" size="4" value="1" min="0" step="1" class="c-input-text qty text" onchange="multiplyBy1();"></td>
+                                    <td class="total-pr">
+                                        <output id="result1">$ 65.00</output>
+                                    </td>
+                                    <td class="remove-pr">
+                                        <button onclick="myFunction1()"><i class="fas fa-times"></i></button>
+								</a>
+                                    </td>
+                                </tr>
+                                <tr id="Cart2">
+                                    <td class="thumbnail-img">
+									<img class="img-fluid" src="../images/man-wearing-black-hat-and-black-coat-157675.jpg" alt="" />
+								</a>
+                                    </td>
+                                    <td class="name-pr">
+									Black Jacket (id: 81927092059u23f)
+								</a>
+                                    </td>
+                                    <td class="size-pr">
+                                        <p>XL</p>
+                                    </td>
+                                    <td class="price-pr">
+                                        <p>$ 75.00</p>
+                                    </td>
+                                    <td class="quantity-box"><input type="number" id="quant2" size="4" value="1" min="0" step="1" class="c-input-text qty text" onchange="multiplyBy2();"></td>
+                                    <td class="total-pr">
+                                        <output id="result2">$ 75.00</output>
+                                    </td>
+                                    <td class="remove-pr">
+                                        <button onclick="myFunction2()"><i class="fas fa-times"></i></button>
+								</a>
+                                    </td>
+                                </tr>
+                                <tr id="Cart3">
+                                    <td class="thumbnail-img">
+									<img class="img-fluid" src="../images/woman-wearing-eyeglasses-3584758.jpg" alt="" />
+								</a>
+                                    </td>
+                                    <td class="name-pr">
+									Black Blazer (id: aijfovwejr832)
+								</a>
+                                    </td>
+                                    <td class="size-pr">
+                                        <p>S</p>
+                                    </td>
+                                    <td class="price-pr">
+                                        <p>$ 25.00</p>
+                                    </td>
+                                    <td class="quantity-box"><input type="number" id="quant3" size="4" value="1" min="0" step="1" class="c-input-text qty text" onchange="multiplyBy3();"></td>
+                                    <td class="total-pr">
+                                        <output id="result3">$ 25.00</output>
+                                    </td>
+                                    <td class="remove-pr">
+                                        <button onclick="myFunction3()"><i class="fas fa-times"></i></button>
+								</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row my-5">
+                <div class="col-lg-6 col-sm-6">
+                    <div class="coupon-box">
+                        <div class="input-group input-group-sm">
+                            <input class="form-control" placeholder="Enter your coupon code" aria-label="Coupon code" type="text">
+                            <div class="input-group-append">
+                                <button class="btn btn-theme" type="button">Apply Coupon</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row my-5">
+                <div class="col-lg-8 col-sm-12"></div>
+                <div class="col-lg-4 col-sm-12">
+                    <div class="order-box">
+                        <h3>Order summary</h3>
+                        <div class="d-flex">
+                            <h4>Sub Total</h4>
+                            <output id="subtotal" class="ml-auto font-weight-bold"> $ 165.00 </output>
+                        </div>
+                        <div class="d-flex">
+                            <h4>Discount</h4>
+                            <div class="ml-auto font-weight-bold"> $ 0.00 </div>
+                        </div>
+                        <hr class="my-1">
+                        <div class="d-flex">
+                            <h4>Coupon Discount</h4>
+                            <div class="ml-auto font-weight-bold"> $ 0.00 </div>
+                        </div>
+                        <div class="d-flex">
+                            <h4>VAT</h4>
+                            <div class="ml-auto font-weight-bold"> $ INCLUDED </div>
+                        </div>
+                        <div class="d-flex">
+                            <h4>Shipping Cost</h4>
+                            <div class="ml-auto font-weight-bold"> $ 0.00 </div>
+                        </div>
+                        <hr>
+                        <div class="d-flex gr-total">
+                            <h5>Grand Total</h5>
+                            <output class="ml-auto font-weight-bold" id="grandtotals"> $ 165.00 </output>
+                        </div>
+                        <hr> </div>
+                </div>
+                <div class="col-12 d-flex shopping-box"><a href="https://matthew-harvey.github.io/Ecommerce/checkout/" class="ml-auto btn hvr-hover">Checkout</a> </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- End Cart -->
+
+   <!-- Start Instagram Feed  -->
+    <div class="title-all text-center">
+        <h2>Newest Items</h2>
+    </div>
+    <div class="instagram-box">
+        <div class="main-instagram owl-carousel owl-theme">
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="../images/man-wearing-a-jacket-sitting-on-brown-wooden-crate-594610.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="https://matthew-harvey.github.io/Ecommerce/cart"><i class="fa fa-shopping-bag"  aria-expanded="false"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="../images/woman-wearing-a-coat-3393793.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="https://matthew-harvey.github.io/Ecommerce/cart"><i class="fa fa-shopping-bag"  aria-expanded="false"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="../images/woman-in-white-and-brown-floral-dress-4380970.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="https://matthew-harvey.github.io/Ecommerce/cart"><i class="fa fa-shopping-bag"  aria-expanded="false"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="../images/woman-standing-in-front-of-mirror-with-hands-in-pockets-1027160.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="https://matthew-harvey.github.io/Ecommerce/cart"><i class="fa fa-shopping-bag"  aria-expanded="false"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="../images/man-in-beige-suit-holding-a-gay-pride-flag-4611776.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="https://matthew-harvey.github.io/Ecommerce/cart"><i class="fa fa-shopping-bag"  aria-expanded="false"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="../images/man-in-black-leather-jacket-wearing-a-mask-4021822.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="https://matthew-harvey.github.io/Ecommerce/cart"><i class="fa fa-shopping-bag"  aria-expanded="false"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="../images/man-wearing-black-hat-and-black-coat-157675.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="https://matthew-harvey.github.io/Ecommerce/cart"><i class="fa fa-shopping-bag"  aria-expanded="false"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="../images/man-wearing-dress-shirt-holding-dandelion-1250426.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="https://matthew-harvey.github.io/Ecommerce/cart"><i class="fa fa-shopping-bag"  aria-expanded="false"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="../images/portrait-of-woman-247206.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="https://matthew-harvey.github.io/Ecommerce/cart"><i class="fa fa-shopping-bag"  aria-expanded="false"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="../images/woman-in-gray-blazer-stands-on-gray-concrete-floor-914668.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="https://matthew-harvey.github.io/Ecommerce/cart"><i class="fa fa-shopping-bag"  aria-expanded="false"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Instagram Feed  -->
+
+    <br></br>
+
+    <!-- Start Footer  -->
+    <footer>
+        <div class="footer-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="footer-widget">
+                            <h4>About Spoura</h4>
+                            <p>A sample Ecommerce site.
+                                </p>
+                            <p>Designed By: Matthew Harvey</p>
+                            <ul>
+                                <li><a href="https://www.linkedin.com/in/m-harvey/"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                                <li><a href="https://github.com/Matthew-Harvey/"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="footer-link-contact">
+                            <h4>Contact Us</h4>
+                            <ul>
+                                <li>
+                                    <p><i class="fas fa-map-marker-alt"></i>Address: Leicester, UK</p>
+                                </li>
+                                <li>
+                                    <p><i class="fas fa-phone-square"></i>Phone: 123456789</p>
+                                </li>
+                                <li>
+                                    <p><i class="fas fa-envelope"></i>Email: <a href="mailto:matthewtlharvey@gmail.com">matthewtlharvey@gmail.com</a></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer  -->
+
+    <!-- ALL JS FILES -->
+    <script>
+        function myFunction1() {
+            var myobj1 = document.getElementById("Cart1");
+            myobj1.remove();
+        }
+        function myFunction2() {
+            var myobj2 = document.getElementById("Cart2");
+            myobj2.remove();
+        }
+        function myFunction3() {
+            var myobj3 = document.getElementById("Cart3");
+            myobj3.remove();
+        }
+        function multiplyBy3() {
+            var num1 = document.getElementById("quant3").value;
+            var num2 = 25;
+            grandtotal();
+            document.getElementById("result3").innerHTML = "$ " + (num1 * num2) + ".00";
+        }
+        function multiplyBy2() {
+            var num1 = document.getElementById("quant2").value;
+            var num2 = 75;
+            grandtotal();
+            document.getElementById("result2").innerHTML = "$ " + (num1 * num2) + ".00";
+        }
+        function multiplyBy1() {
+            var num1 = document.getElementById("quant1").value;
+            var num2 = 65;
+            grandtotal();
+            document.getElementById("result1").innerHTML = "$ " + (num1 * num2) + ".00";
+        }
+        function grandtotal() {
+            var num1 = document.getElementById("quant1").value;
+            var num2 = document.getElementById("quant2").value;
+            var num3 = document.getElementById("quant3").value;
+            var max = parseInt(num1*65) + parseInt(num2*75) + parseInt(num3*25)
+            document.getElementById("subtotal").innerHTML = "$ " + max + ".00";
+            document.getElementById("grandtotals").innerHTML = "$ " + max + ".00";
+        }
+    </script>
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="../js/jquery.superslides.min.js"></script>
+    <script src="../js/bootstrap-select.js"></script>
+    <script src="../js/inewsticker.js"></script>
+    <script src="../js/bootsnav.js."></script>
+    <script src="../js/images-loded.min.js"></script>
+    <script src="../js/isotope.min.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/baguetteBox.min.js"></script>
+    <script src="../js/form-validator.min.js"></script>
+    <script src="../js/contact-form-script.js"></script>
+    <script src="../js/custom.js"></script>
+</body>
+
+</html>
