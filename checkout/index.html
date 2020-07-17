@@ -264,15 +264,15 @@
                                 </div>
                                 <div class="mb-4">
                                     <div class="custom-control custom-radio">
-                                        <input id="shippingOption1" name="shipping-option" class="custom-control-input" checked="checked" type="radio">
+                                        <input id="shippingOption1" name="shipping-option" class="custom-control-input" checked="checked" type="radio" value=0 onchange="updatecart()">
                                         <label class="custom-control-label" for="shippingOption1">Standard Delivery</label> <span class="float-right font-weight-bold">$ 0.00</span> </div>
                                     <div class="ml-4 mb-2 small">(3-7 business days)</div>
                                     <div class="custom-control custom-radio">
-                                        <input id="shippingOption2" name="shipping-option" class="custom-control-input" type="radio">
+                                        <input id="shippingOption2" name="shipping-option" class="custom-control-input" type="radio" value=10 onchange="updatecart2()">
                                         <label class="custom-control-label" for="shippingOption2">Express Delivery</label> <span class="float-right font-weight-bold">$ 10.00</span> </div>
                                     <div class="ml-4 mb-2 small">(2-4 business days)</div>
                                     <div class="custom-control custom-radio">
-                                        <input id="shippingOption3" name="shipping-option" class="custom-control-input" type="radio">
+                                        <input id="shippingOption3" name="shipping-option" class="custom-control-input" type="radio" value=20 onchange="updatecart3()">
                                         <label class="custom-control-label" for="shippingOption3">Next Business day</label> <span class="float-right font-weight-bold">$ 20.00</span> </div>
                                 </div>
                             </div>
@@ -336,12 +336,12 @@
                                 <hr class="my-1">
                                 <div class="d-flex">
                                     <h4>Shipping Cost</h4>
-                                    <div class="ml-auto font-weight-bold"> $ 0.00 </div>
+                                    <output class="ml-auto font-weight-bold" id="ship"> $ 0.00 </output>
                                 </div>
                                 <hr class="my-1">
                                 <div class="d-flex gr-total">
                                     <h5>Grand Total</h5>
-                                    <div class="ml-auto h5"> $ 240.00 </div>
+                                    <output class="ml-auto h5" id="alltotal"> $ 240.00 </output>
                                 </div>
                                 <hr> </div>
                         </div>
@@ -486,6 +486,28 @@
     <!-- End Footer  -->
 
     <!-- ALL JS FILES -->
+    <script>
+        function updatecart() {
+            var num1 = document.getElementById("shippingOption1").value;
+            document.getElementById("ship").innerHTML = "$ " + num1 + ".00";
+            totalupdate(num1);
+        }
+        function updatecart2() {
+            var num1 = document.getElementById("shippingOption2").value;
+            document.getElementById("ship").innerHTML = "$ " + num1 + ".00";
+            totalupdate(num1);
+        }
+        function updatecart3() {
+            var num1 = document.getElementById("shippingOption3").value;
+            document.getElementById("ship").innerHTML = "$ " + num1 + ".00";
+            totalupdate(num1);
+        }
+        function totalupdate(num1) {
+            var num1 = num1;
+            var num1 = parseInt(num1)
+            document.getElementById("alltotal").innerHTML = "$ " + (num1+240) + ".00";
+        }
+    </script>
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
