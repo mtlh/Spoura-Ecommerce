@@ -89,6 +89,10 @@
      text-decoration: none;
      outline: none;
 }
+a:hover {
+    color: #0474bc !important;
+  }
+
  a, .btn {
      text-decoration: none !important;
      outline: none !important;

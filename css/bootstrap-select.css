@@ -45,7 +45,7 @@ select.selectpicker {
 }
 /* line 77, bootstrap-select.scss */
 .has-error .bootstrap-select .dropdown-toggle, .error .bootstrap-select .dropdown-toggle {
-  border-color: #b94a48;
+  border-color: #0474bc;
 }
 /* line 82, bootstrap-select.scss */
 .bootstrap-select.fit-width {
