@@ -1340,7 +1340,7 @@ a:hover {
 }
 /*------------------------------------------------------------------ All Pages -------------------------------------------------------------------*/
  .all-title-box{
-     background: url("../images/black-and-white-stripes-fedora-hat-101537.jpg") no-repeat center center;
+     background: no-repeat center center;
      -webkit-background-size: cover;
      -moz-background-size: cover;
      -ms-background-size: cover;
