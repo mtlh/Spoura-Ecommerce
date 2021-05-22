@@ -77,9 +77,8 @@
                                             <h6 class="title">Clothing</h6>
                                                 <ul class="menu-col">
                                                     <li><a href="https://matthew-harvey.github.io/Ecommerce/mens/shop/">All Clothing</a></li>
-                                                    <li><a href="https://matthew-harvey.github.io/Ecommerce/mens/shop/">Jackets</a></li>
-                                                    <li><a href="https://matthew-harvey.github.io/Ecommerce/mens/shop/">Shirts</a></li>
-                                                    <li><a href="https://matthew-harvey.github.io/Ecommerce/mens/shop/">Sweaters / Hoodies</a></li>
+                                                    <li><a href="https://matthew-harvey.github.io/Ecommerce/mens/shop?filter=shirts">Shirts</a></li>
+                                                    <li><a href="https://matthew-harvey.github.io/Ecommerce/mens/shop/">Hoodies</a></li>
                                                     <li><a href="https://matthew-harvey.github.io/Ecommerce/mens/shop/">T-shirts</a></li>
                                                     <li><a href="https://matthew-harvey.github.io/Ecommerce/mens/shop/">Jeans</a></li>
                                                     <li><a href="https://matthew-harvey.github.io/Ecommerce/mens/shop/">Trousers</a></li>
@@ -291,7 +290,6 @@
                                 function checkradio(id, value) {
                                     var x = document.getElementsByClassName("test");
                                     for (let i = 0; i < 36; i++) {
-                                        console.log(value, x[i].id, i)
                                         if (x[i].id == value) {
                                             i = parseInt(i)
                                             document.getElementById(i).style.display = "block";
@@ -300,115 +298,123 @@
                                             i = parseInt(i)
                                             document.getElementById(i).style.display = "none";
                                         }
-                                        console.log("completed loop")
                                     }
                                 }
                                 function showall(id, value) {
                                     var x = document.getElementsByClassName("test");
                                     for (let i = 0; i < 36; i++) {
-                                        console.log(value, x[i].id, i)
                                         i = parseInt(i)
                                         document.getElementById(i).style.display = "block";
-                                        console.log("completed loop")
                                     }
                                 }
+                                
+                                window.onload = function () {
+                                    const queryString = window.location.search;
+                                    const urlParams = new URLSearchParams(queryString);
+                                    if (urlParams.has("filter") == true) {
+                                        var product = urlParams.get('filter');
+                                        product += "check";
+                                        document.getElementById(product).click();
+                                    }
+                                }
+
                             </script>
 
                             <div class="brand-box">
                                 <ul>
                                     <li>
                                         <div class="radio radio-danger">
-                                            <input name="survey" id="Radios1" value="all" onclick="showall(this.id, this.value);" checked="checked" type="radio">
+                                            <input name="survey" id="allcheck" value="all" onclick="showall(this.id, this.value);" checked="checked" type="radio">
                                             <label for="Radios1"> All </label>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="radio radio-danger">
-                                            <input name="survey" id="Radios2" value="tshirts" type="radio" onclick="checkradio(this.id, this.value);">
+                                            <input name="survey" id="tshirtscheck" value="tshirts" type="radio" onclick="checkradio(this.id, this.value);">
                                             <label for="Radios2"> T-Shirts </label>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="radio radio-danger">
-                                            <input name="survey" id="Radios3" value="jeans" type="radio" onclick="checkradio(this.id, this.value);">
+                                            <input name="survey" id="jeanscheck" value="jeans" type="radio" onclick="checkradio(this.id, this.value);">
                                             <label for="Radios3"> Jeans </label>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="radio radio-danger">
-                                            <input name="survey" id="Radios4" value="hoodies" type="radio" onclick="checkradio(this.id, this.value);">
+                                            <input name="survey" id="hoodiescheck" value="hoodies" type="radio" onclick="checkradio(this.id, this.value);">
                                             <label for="Radios4"> Hoodies </label>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="radio radio-danger">
-                                            <input name="survey" id="Radios5" value="collections" type="radio" onclick="checkradio(this.id, this.value);">
+                                            <input name="survey" id="collectionscheck" value="collections" type="radio" onclick="checkradio(this.id, this.value);">
                                             <label for="Radios5"> Collections </label>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="radio radio-danger">
-                                            <input name="survey" id="Radios6" value="sunglasses" type="radio" onclick="checkradio(this.id, this.value);">
+                                            <input name="survey" id="sunglassescheck" value="sunglasses" type="radio" onclick="checkradio(this.id, this.value);">
                                             <label for="Radios6"> Sunglasses </label>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="radio radio-danger">
-                                            <input name="survey" id="Radios7" value="bags" type="radio" onclick="checkradio(this.id, this.value);">
+                                            <input name="survey" id="bagscheck" value="bags" type="radio" onclick="checkradio(this.id, this.value);">
                                             <label for="Radios7"> Bags </label>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="radio radio-danger">
-                                            <input name="survey" id="Radios8" value="shorts" type="radio" onclick="checkradio(this.id, this.value);">
+                                            <input name="survey" id="shortscheck" value="shorts" type="radio" onclick="checkradio(this.id, this.value);">
                                             <label for="Radios8"> Shorts </label>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="radio radio-danger">
-                                            <input name="survey" id="Radios9" value="suits" type="radio" onclick="checkradio(this.id, this.value);">
+                                            <input name="survey" id="suitscheck" value="suits" type="radio" onclick="checkradio(this.id, this.value);">
                                             <label for="Radios9"> Suits </label>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="radio radio-danger">
-                                            <input name="survey" id="Radios10" value="wallets" type="radio" onclick="checkradio(this.id, this.value);">
+                                            <input name="survey" id="walletscheck" value="wallets" type="radio" onclick="checkradio(this.id, this.value);">
                                             <label for="Radios10"> Wallets </label>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="radio radio-danger">
-                                            <input name="survey" id="Radios11" value="trousers" type="radio" onclick="checkradio(this.id, this.value);">
+                                            <input name="survey" id="trouserscheck" value="trousers" type="radio" onclick="checkradio(this.id, this.value);">
                                             <label for="Radios11"> Trousers </label>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="radio radio-danger">
-                                            <input name="survey" id="Radios12" value="watches" type="radio" onclick="checkradio(this.id, this.value);">
+                                            <input name="survey" id="watchescheck" value="watches" type="radio" onclick="checkradio(this.id, this.value);">
                                             <label for="Radios12"> Watches </label>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="radio radio-danger">
-                                            <input name="survey" id="Radios13" value="fragarances" type="radio" onclick="checkradio(this.id, this.value);">
+                                            <input name="survey" id="fragarancescheck" value="fragarances" type="radio" onclick="checkradio(this.id, this.value);">
                                             <label for="Radios13"> Fragarances </label>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="radio radio-danger">
-                                            <input name="survey" id="Radios14" value="shoes" type="radio" onclick="checkradio(this.id, this.value);">
+                                            <input name="survey" id="shoescheck" value="shoes" type="radio" onclick="checkradio(this.id, this.value);">
                                             <label for="Radios14"> Shoes </label>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="radio radio-danger">
-                                            <input name="survey" id="Radios15" value="belts" type="radio" onclick="checkradio(this.id, this.value);">
+                                            <input name="survey" id="beltscheck" value="belts" type="radio" onclick="checkradio(this.id, this.value);">
                                             <label for="Radios15"> Belts </label>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="radio radio-danger">
-                                            <input name="survey" id="Radios16" value="shirts" type="radio" onclick="checkradio(this.id, this.value);">
+                                            <input name="survey" id="shirtscheck" value="shirts" type="radio" onclick="checkradio(this.id, this.value);">
                                             <label for="Radios16"> Shirts </label>
                                         </div>
                                     </li>
