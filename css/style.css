@@ -847,6 +847,7 @@ a:hover {
      margin: 0 auto;
      text-align: center;
      display: block;
+     background-color: white;
 }
  .type-lb{
      position: absolute;
@@ -869,7 +870,7 @@ a:hover {
      text-transform: uppercase;
 }
  .why-text{
-     background: #f5f5f5;
+     background: white;
      padding: 15px;
 }
  .why-text h4{
@@ -1812,7 +1813,6 @@ a:hover {
 }
  .why-text.full-width h5 del{
      font-size: 13px;
-     color: #666;
 }
  .why-text.full-width h5{
      color: #0474bc;
