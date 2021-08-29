@@ -421,16 +421,6 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="filter-brand-left">
-                            <div class="title-left" style="padding-top: 30px";>
-                                <h3>Search</h3>
-                            </div>
-                            <div class="search-product">
-                                <form action="#">
-                                    <input class="form-control" placeholder="Text goes here" type="text">
-                                </form>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="col-xl-9 col-lg-9 col-sm-12 col-xs-12 shop-content-right">
@@ -438,11 +428,11 @@
                         <div class="product-item-filter row">
                             <div class="col-12 col-sm-8 text-center text-sm-left">
                                 <div class="toolbar-sorter-right">
-                                    <span>Sort by </span>
-                                    <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
-									<option value="1">Popular</option>
-									<option value="2">High Price → Low Price</option>
-									<option value="3">Low Price → High Price</option>
+                                    <div class="search-product">
+                                        <form action="#">
+                                            <input id="searchinp" onkeyup="searchhide()" class="form-control" placeholder="Search" type="text">
+                                        </form>
+                                    </div>
 								</select>
                                 </div>
                                 <p>Showing results</p>
@@ -903,6 +893,29 @@
         </div>
     </div>
     <!-- End Shop Page -->
+
+    <script>
+        function searchhide() {
+          var input = document.getElementById('searchinp');
+          var filter = input.value.toUpperCase();
+        
+          // Loop through all list items, and hide those who don't match the search query
+
+          for (i = 0; i < 36; i++) {
+            var div1 = document.getElementsByClassName("col-md-6 col-lg-4 col-xl-4")
+            var div2 = div1[i].getElementsByClassName("products-single fix")
+            var div3 = div2[0].getElementsByClassName("why-text")
+            var div4 = div3[0].getElementsByTagName("h4");
+            var div5 = div4[0].innerText
+            if (div5.toUpperCase().indexOf(filter) > -1) {
+              div1[i].style.display = "";
+            } else {
+              div1[i].style.display = "none";
+            }
+          }
+        }
+    </script>
+
 
     <!-- Start Instagram Feed  -->
     <div class="title-all text-center">
