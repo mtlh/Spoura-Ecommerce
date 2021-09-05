@@ -280,8 +280,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-3 col-lg-3 col-sm-12 col-xs-12 sidebar-shop-left">
-                    <div class="product-categori">
+                    <div id="leftstick" class="product-categori">
                         <div class="filter-brand-left">
+                            <div class="title-left">
+                                <h3>Search</h3>
+                            </div>
+                            <div class="search-product">
+                                <form action="#">
+                                    <input id="searchinp" onkeyup="searchhide()" class="form-control" placeholder="Search" type="text">
+                                </form>
+                                </div>
                             <div class="title-left">
                                 <h3>Catagories</h3>
                             </div>
@@ -425,27 +433,6 @@
                 </div>
                 <div class="col-xl-9 col-lg-9 col-sm-12 col-xs-12 shop-content-right">
                     <div class="right-product-box">
-                        <div class="product-item-filter row">
-                            <div class="col-12 col-sm-8 text-center text-sm-left">
-                                <div class="toolbar-sorter-right">
-                                    <div class="search-product">
-                                        <form action="#">
-                                            <input id="searchinp" onkeyup="searchhide()" class="form-control" placeholder="Search" type="text">
-                                        </form>
-                                    </div>
-								</select>
-                                </div>
-                                <p>Showing results</p>
-                            </div>
-                            <div class="col-12 col-sm-4 text-center text-sm-right">
-                                <ul class="nav nav-tabs ml-auto">
-                                    <li>
-                                        <a class="nav-link active" href="#grid-view" data-toggle="tab"> <i class="fa fa-th"></i> </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
                         <div class="row product-categorie-box">
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane fade show active" id="grid-view">
