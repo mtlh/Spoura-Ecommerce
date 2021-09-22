@@ -330,14 +330,14 @@
                             document.getElementById("cartadd").style.backgroundColor = "#0474bc";
                             document.getElementById("cartadd").innerText = "Add To Cart";
                             count = 1;
-                            localStorage.removeItem(urlParams.get('id'))
+                            localStorage.removeItem(product)
                         }
                         else {
                             document.getElementById("cartadd").style.backgroundColor = "#FF0000";
                             document.getElementById("cartadd").innerText = "Remove From Cart";
                             count = 0;
                             let itemarr = [title.innerText, basic.value, quantity.value, price.innerText]
-                            localStorage.setItem(urlParams.get('id'), itemarr)
+                            localStorage.setItem(product, itemarr)
                         }
                     }
                     document.getElementById("cartadd").addEventListener("click", setColor);
