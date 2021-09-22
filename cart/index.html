@@ -259,6 +259,13 @@
     <!-- End All Title Box -->
 
     <!-- Start Cart  -->
+    <script>
+        window.onload = function () {
+            Object.keys(localStorage).forEach(function(key){
+                console.log(localStorage.getItem(key));
+            });
+        }
+    </script>
     <div class="cart-box-main">
         <div class="container">
             <div class="row">
