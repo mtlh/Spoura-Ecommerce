@@ -261,6 +261,7 @@
             const urlParams = new URLSearchParams(queryString);
             if (urlParams.has("id") == true) {
                 var product = urlParams.get('id');
+                var idnumber = product
                 var name = ids[product][1]
                 var imglink = ids[product][0]
                 var cost = ids[product][2]
@@ -330,14 +331,14 @@
                             document.getElementById("cartadd").style.backgroundColor = "#0474bc";
                             document.getElementById("cartadd").innerText = "Add To Cart";
                             count = 1;
-                            localStorage.removeItem(product)
+                            localStorage.removeItem(idnumber)
                         }
                         else {
                             document.getElementById("cartadd").style.backgroundColor = "#FF0000";
                             document.getElementById("cartadd").innerText = "Remove From Cart";
                             count = 0;
                             let itemarr = [title.innerText, basic.value, quantity.value, price.innerText]
-                            localStorage.setItem(product, itemarr)
+                            localStorage.setItem(idnumber, itemarr)
                         }
                     }
                     document.getElementById("cartadd").addEventListener("click", setColor);
