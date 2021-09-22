@@ -270,13 +270,14 @@
                 var name = "Darkshade Oufits 2020"
                 var imglink = "small_img/man-in-black-suit-holding-bouquet-of-flowers-3650469.jpg" // if linked without id 
                 var cost = "£49.99"
+                var idnumber = "1"
             }
             var imagesource = "../../images/" + imglink
             document.getElementById("title").innerHTML = name
             document.getElementById("topname").innerHTML = name + " - Spoura"
             document.getElementById("price").innerHTML = cost
             document.getElementById("mainimg").src = imagesource;
-            document.getElementById("iddisplay").src = idnumber;
+            document.getElementById("iddisplay").innerText = idnumber;
         }
     </script>
     <!-- Start Shop Detail  -->
@@ -330,7 +331,7 @@
                 <script>
                     var count = 1;
                     function setColor() {
-                        var idnum = document.getElementById("iddisplay").src 
+                        var idnum = document.getElementById("iddisplay").innerHTML 
                         if (count == 0) {
                             document.getElementById("cartadd").style.backgroundColor = "#0474bc";
                             document.getElementById("cartadd").innerText = "Add To Cart";
@@ -341,7 +342,7 @@
                             document.getElementById("cartadd").style.backgroundColor = "#FF0000";
                             document.getElementById("cartadd").innerText = "Remove From Cart";
                             count = 0;
-                            let itemarr = [iddisplay.innerText, title.innerText, basic.value, quantity.value, price.innerText, mainimg.innerText]
+                            let itemarr = [iddisplay.innerText, title.innerText, basic.value, quantity.value, price.innerText, mainimg.src]
                             localStorage.setItem(idnum, itemarr)
                         }
                     }
