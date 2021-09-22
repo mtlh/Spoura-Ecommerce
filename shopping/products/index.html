@@ -276,6 +276,7 @@
             document.getElementById("topname").innerHTML = name + " - Spoura"
             document.getElementById("price").innerHTML = cost
             document.getElementById("mainimg").src = imagesource;
+            document.getElementById("iddisplay").src = idnumber;
         }
     </script>
     <!-- Start Shop Detail  -->
@@ -291,6 +292,8 @@
                 </div>
                 <div class="col-xl-7 col-lg-7 col-md-6">
                     <div class="single-product-details">
+                        <h4 id=iddisplay>1</h4>
+                        <br></br>
                         <h2 id="title"></h2>
                         <h5 id="price"></h5>
                             <p>
@@ -327,18 +330,19 @@
                 <script>
                     var count = 1;
                     function setColor() {
+                        var idnum = document.getElementById("iddisplay").src 
                         if (count == 0) {
                             document.getElementById("cartadd").style.backgroundColor = "#0474bc";
                             document.getElementById("cartadd").innerText = "Add To Cart";
                             count = 1;
-                            localStorage.removeItem(idnumber)
+                            localStorage.removeItem(idnum)
                         }
                         else {
                             document.getElementById("cartadd").style.backgroundColor = "#FF0000";
                             document.getElementById("cartadd").innerText = "Remove From Cart";
                             count = 0;
                             let itemarr = [title.innerText, basic.value, quantity.value, price.innerText]
-                            localStorage.setItem(idnumber, itemarr)
+                            localStorage.setItem(idnum, itemarr)
                         }
                     }
                     document.getElementById("cartadd").addEventListener("click", setColor);
