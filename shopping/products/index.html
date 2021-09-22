@@ -10,7 +10,7 @@
     <meta name="viewport">
 
     <!-- Site Metas -->
-    <title>Spoura</title>
+    <title id="topname">Spoura Product</title>
     <meta name="keywords" content="Ecommerce, Spoura">
     <meta name="description" content="Ecommerce Site">
     <meta name="author" content="Matthew Harvey">
@@ -282,6 +282,7 @@
             }
             var imagesource = "../../images/" + imglink
             document.getElementById("title").innerHTML = name
+            document.getElementById("topname").innerHTML = name + " - Spoura"
             document.getElementById("price").innerHTML = cost
             document.getElementById("mainimg").src = imagesource;
         }
@@ -293,7 +294,7 @@
                 <div class="col-xl-5 col-lg-5 col-md-6">
                     <div id="carousel-example-1" class="single-product-slider carousel slide" data-ride="carousel">
                         <div class="carousel-inner" role="listbox">
-                            <div class="carousel-item active"> <img id="mainimg" src="" alt="First slide" style="max-height: 400px; max-width: 300px;"> </div>
+                            <div class="carousel-item active"> <img id="mainimg" src="" alt="First slide" style="max-height: 500px; max-width: 600px;"> </div>
                         </div>
                     </div>
                 </div>
