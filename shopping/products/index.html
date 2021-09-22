@@ -337,7 +337,7 @@
                             document.getElementById("cartadd").innerText = "Remove From Cart";
                             count = 0;
                             let itemarr = [title.innerText, basic.value, quantity.value, price.innerText]
-                            localStorage.setItem("item", itemarr)
+                            localStorage.setItem(id, itemarr)
                         }
                     }
                     document.getElementById("cartadd").addEventListener("click", setColor);
