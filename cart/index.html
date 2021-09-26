@@ -259,12 +259,89 @@
     <!-- End All Title Box -->
 
     <!-- Start Cart  -->
+    <script src="../js/jquery.js"></script>
     <script>
         window.onload = function () {
             Object.keys(localStorage).forEach(function(key){
-                console.log(localStorage.getItem(key));
+                var itemarray = localStorage.getItem(key);
+                itemarray = itemarray.split(",")
+
+                var itemid = itemarray[0]
+                var itemquant = itemarray[3];
+                var itemtitle = itemarray[1];
+                var itemprice = itemarray[4];
+                var itemimg = itemarray[5];
+                var itemsize = itemarray[2];
+                var cartnumberhold = "cart" + itemid
+
+                var cartnumber = document.createElement("tr");
+                cartnumber.id = cartnumberhold
+                cartbase.appendChild(cartnumber);
+
+                var tdunder = document.createElement("tr");
+                tdunder.classList.add('thumbnail-img');
+                cartnumber.appendChild(tdunder);
+
+                var imgnow = document.createElement("img");
+                imgnow.classList.add('img-fluid');
+                imgnow.src = itemimg
+                tdunder.appendChild(imgnow);
+
+                var tdname = document.createElement("td");
+                tdname.classList.add('name-pr');
+                tdname.innerHTML = itemtitle
+                cartnumber.appendChild(tdname);
+
+                var tdsize = document.createElement("td");
+                tdsize.classList.add('size-pr');
+                tdsize.innerHTML = itemsize
+                cartnumber.appendChild(tdsize);
+
+                var tdprice = document.createElement("td");
+                tdprice.classList.add('price-pr');
+                tdprice.innerHTML = itemprice
+                cartnumber.appendChild(tdprice);
+
+                var tdquant = document.createElement("td");
+                tdquant.classList.add('quantity-box');
+                cartnumber.appendChild(tdquant);
+
+                var quantinput = document.createElement("input");
+                quantinput.id = "quant" + itemid
+                quantinput.type = "number"
+                quantinput.size = "4"
+                quantinput.value = itemquant
+                quantinput.min = "0"
+                quantinput.max = "10"
+                quantinput.step = "1"
+                quantinput.classList.add('c-input-text');
+                quantinput.onchange = ""
+                tdquant.appendChild(quantinput);
+
+                var tdtotal = document.createElement("td");
+                tdtotal.classList.add('total-pr');
+                cartnumber.appendChild(tdtotal);
+
+                var totalout = document.createElement("output");
+                totalout.id = "result" + itemid
+                totalout.innerHTML = itemprice
+                tdtotal.appendChild(totalout);
+
+                var tdremove = document.createElement("td");
+                tdremove.classList.add('remove-pr');
+                cartnumber.appendChild(tdremove);
+
+                var removebutton = document.createElement("button");
+                removebutton.onclick = ""
+                tdremove.appendChild(removebutton);
+
+                var removebuttoni = document.createElement("i");
+                removebuttoni.classList.add('fa-times');
+                removebuttoni.classList.add('fas');
+                removebutton.appendChild(removebuttoni);
             });
         }
+        
     </script>
     <div class="cart-box-main">
         <div class="container">
@@ -283,15 +360,13 @@
                                     <th>Remove</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="cartbase">
                                 <tr id="Cart1">
                                     <td class="thumbnail-img">
 									<img class="img-fluid" src="../images/small_img/woman-standing-wearing-red-dress-2609741.jpg" alt="" />
-								</a>
                                     </td>
                                     <td class="name-pr">
 									Red Dress (id: 3ufjioj398rydh9as)
-								</a>
                                     </td>
                                     <td class="size-pr">
                                         <p>M</p>
@@ -305,17 +380,14 @@
                                     </td>
                                     <td class="remove-pr">
                                         <button onclick="myFunction1()"><i class="fas fa-times"></i></button>
-								</a>
                                     </td>
                                 </tr>
                                 <tr id="Cart2">
                                     <td class="thumbnail-img">
 									<img class="img-fluid" src="../images/small_img/man-wearing-black-hat-and-black-coat-157675.jpg" alt="" />
-								</a>
                                     </td>
                                     <td class="name-pr">
 									Black Jacket (id: 81927092059u23f)
-								</a>
                                     </td>
                                     <td class="size-pr">
                                         <p>XL</p>
@@ -329,17 +401,14 @@
                                     </td>
                                     <td class="remove-pr">
                                         <button onclick="myFunction2()"><i class="fas fa-times"></i></button>
-								</a>
                                     </td>
                                 </tr>
                                 <tr id="Cart3">
                                     <td class="thumbnail-img">
 									<img class="img-fluid" src="../images/small_img/woman-wearing-eyeglasses-3584758.jpg" alt="" />
-								</a>
                                     </td>
                                     <td class="name-pr">
 									Black Blazer (id: aijfovwejr832)
-								</a>
                                     </td>
                                     <td class="size-pr">
                                         <p>S</p>
@@ -353,7 +422,6 @@
                                     </td>
                                     <td class="remove-pr">
                                         <button onclick="myFunction3()"><i class="fas fa-times"></i></button>
-								</a>
                                     </td>
                                 </tr>
                             </tbody>
