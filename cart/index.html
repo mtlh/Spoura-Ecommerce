@@ -262,6 +262,7 @@
     <script src="../js/jquery.js"></script>
     <script>
         window.onload = function () {
+            var subtotal = 0
             Object.keys(localStorage).forEach(function(key){
                 var itemarray = localStorage.getItem(key);
                 itemarray = itemarray.split(",")
@@ -284,6 +285,8 @@
 
                 var imgnow = document.createElement("img");
                 imgnow.classList.add('img-fluid');
+                imgnow.style.width = "120px"
+                imgnow.style.height = "150px"
                 imgnow.src = itemimg
                 tdunder.appendChild(imgnow);
 
@@ -315,7 +318,20 @@
                 quantinput.max = "10"
                 quantinput.step = "1"
                 quantinput.classList.add('c-input-text');
-                quantinput.onchange = ""
+                quantinput.onchange = function () {
+
+                    subtotal = subtotal - parseFloat(String(itemprice.substring(1)))
+                    subtotalout.innerHTML = "£" + subtotal
+                    grandtotals.innerHTML = "£" + subtotal
+
+                    itemquant = quantinput.value
+                    let itemarr = [itemid, itemtitle, itemsize, itemquant, itemprice, itemimg]
+                    localStorage.setItem(itemid, itemarr)
+
+                    var itempricestr = String(itemprice.substring(1))
+                    var pricenum = parseFloat(itempricestr)
+                    totalout.innerHTML = "£" + (pricenum * quantinput.value).toFixed(2)
+                }
                 tdquant.appendChild(quantinput);
 
                 var tdtotal = document.createElement("td");
@@ -324,7 +340,7 @@
 
                 var totalout = document.createElement("output");
                 totalout.id = "result" + itemid
-                totalout.innerHTML = itemprice
+                totalout.innerHTML = "£" + ((parseFloat(String(itemprice.substring(1))) * itemquant).toFixed(2))
                 tdtotal.appendChild(totalout);
 
                 var tdremove = document.createElement("td");
@@ -332,14 +348,18 @@
                 cartnumber.appendChild(tdremove);
 
                 var removebutton = document.createElement("button");
-                removebutton.onclick = ""
+                removebutton.onclick = function () { cartnumber.remove(); localStorage.removeItem(itemid);}
                 tdremove.appendChild(removebutton);
 
                 var removebuttoni = document.createElement("i");
                 removebuttoni.classList.add('fa-times');
                 removebuttoni.classList.add('fas');
                 removebutton.appendChild(removebuttoni);
+
+                subtotal = parseFloat(String(itemprice.substring(1))) * itemquant + subtotal
             });
+            subtotalout.innerHTML = "£" + subtotal
+            grandtotals.innerHTML = "£" + subtotal
         }
         
     </script>
@@ -361,69 +381,6 @@
                                 </tr>
                             </thead>
                             <tbody id="cartbase">
-                                <tr id="Cart1">
-                                    <td class="thumbnail-img">
-									<img class="img-fluid" src="../images/small_img/woman-standing-wearing-red-dress-2609741.jpg" alt="" />
-                                    </td>
-                                    <td class="name-pr">
-									Red Dress (id: 3ufjioj398rydh9as)
-                                    </td>
-                                    <td class="size-pr">
-                                        <p>M</p>
-                                    </td>
-                                    <td class="price-pr">
-                                        <p>$ 65.00</p>
-                                    </td>
-                                    <td class="quantity-box"><input type="number" id="quant1" size="4" value="1" min="0" step="1" class="c-input-text qty text" onchange="multiplyBy1();"></td>
-                                    <td class="total-pr">
-                                        <output id="result1">$ 65.00</output>
-                                    </td>
-                                    <td class="remove-pr">
-                                        <button onclick="myFunction1()"><i class="fas fa-times"></i></button>
-                                    </td>
-                                </tr>
-                                <tr id="Cart2">
-                                    <td class="thumbnail-img">
-									<img class="img-fluid" src="../images/small_img/man-wearing-black-hat-and-black-coat-157675.jpg" alt="" />
-                                    </td>
-                                    <td class="name-pr">
-									Black Jacket (id: 81927092059u23f)
-                                    </td>
-                                    <td class="size-pr">
-                                        <p>XL</p>
-                                    </td>
-                                    <td class="price-pr">
-                                        <p>$ 75.00</p>
-                                    </td>
-                                    <td class="quantity-box"><input type="number" id="quant2" size="4" value="1" min="0" step="1" class="c-input-text qty text" onchange="multiplyBy2();"></td>
-                                    <td class="total-pr">
-                                        <output id="result2">$ 75.00</output>
-                                    </td>
-                                    <td class="remove-pr">
-                                        <button onclick="myFunction2()"><i class="fas fa-times"></i></button>
-                                    </td>
-                                </tr>
-                                <tr id="Cart3">
-                                    <td class="thumbnail-img">
-									<img class="img-fluid" src="../images/small_img/woman-wearing-eyeglasses-3584758.jpg" alt="" />
-                                    </td>
-                                    <td class="name-pr">
-									Black Blazer (id: aijfovwejr832)
-                                    </td>
-                                    <td class="size-pr">
-                                        <p>S</p>
-                                    </td>
-                                    <td class="price-pr">
-                                        <p>$ 25.00</p>
-                                    </td>
-                                    <td class="quantity-box"><input type="number" id="quant3" size="4" value="1" min="0" step="1" class="c-input-text qty text" onchange="multiplyBy3();"></td>
-                                    <td class="total-pr">
-                                        <output id="result3">$ 25.00</output>
-                                    </td>
-                                    <td class="remove-pr">
-                                        <button onclick="myFunction3()"><i class="fas fa-times"></i></button>
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -450,29 +407,29 @@
                         <h3>Order summary</h3>
                         <div class="d-flex">
                             <h4>Sub Total</h4>
-                            <output id="subtotal" class="ml-auto font-weight-bold"> $ 165.00 </output>
+                            <output id="subtotalout" class="ml-auto font-weight-bold"> £165.00 </output>
                         </div>
                         <div class="d-flex">
                             <h4>Discount</h4>
-                            <div class="ml-auto font-weight-bold"> $ 0.00 </div>
+                            <div class="ml-auto font-weight-bold"> £0.00 </div>
                         </div>
                         <hr class="my-1">
                         <div class="d-flex">
                             <h4>Coupon Discount</h4>
-                            <div class="ml-auto font-weight-bold"> $ 0.00 </div>
+                            <div class="ml-auto font-weight-bold"> £0.00 </div>
                         </div>
                         <div class="d-flex">
                             <h4>VAT</h4>
-                            <div class="ml-auto font-weight-bold"> $ INCLUDED </div>
+                            <div class="ml-auto font-weight-bold"> £INCLUDED </div>
                         </div>
                         <div class="d-flex">
                             <h4>Shipping Cost</h4>
-                            <div class="ml-auto font-weight-bold"> $ 0.00 </div>
+                            <div class="ml-auto font-weight-bold"> £FREE </div>
                         </div>
                         <hr>
                         <div class="d-flex gr-total">
                             <h5>Grand Total</h5>
-                            <output class="ml-auto font-weight-bold" id="grandtotals"> $ 165.00 </output>
+                            <output class="ml-auto font-weight-bold" id="grandtotals"> £165.00 </output>
                         </div>
                         <hr> </div>
                 </div>
@@ -631,46 +588,6 @@
     <!-- End Footer  -->
 
     <!-- ALL JS FILES -->
-    <script>
-        function myFunction1() {
-            var myobj1 = document.getElementById("Cart1");
-            myobj1.remove();
-        }
-        function myFunction2() {
-            var myobj2 = document.getElementById("Cart2");
-            myobj2.remove();
-        }
-        function myFunction3() {
-            var myobj3 = document.getElementById("Cart3");
-            myobj3.remove();
-        }
-        function multiplyBy3() {
-            var num1 = document.getElementById("quant3").value;
-            var num2 = 25;
-            grandtotal();
-            document.getElementById("result3").innerHTML = "$ " + (num1 * num2) + ".00";
-        }
-        function multiplyBy2() {
-            var num1 = document.getElementById("quant2").value;
-            var num2 = 75;
-            grandtotal();
-            document.getElementById("result2").innerHTML = "$ " + (num1 * num2) + ".00";
-        }
-        function multiplyBy1() {
-            var num1 = document.getElementById("quant1").value;
-            var num2 = 65;
-            grandtotal();
-            document.getElementById("result1").innerHTML = "$ " + (num1 * num2) + ".00";
-        }
-        function grandtotal() {
-            var num1 = document.getElementById("quant1").value;
-            var num2 = document.getElementById("quant2").value;
-            var num3 = document.getElementById("quant3").value;
-            var max = parseInt(num1*65) + parseInt(num2*75) + parseInt(num3*25)
-            document.getElementById("subtotal").innerHTML = "$ " + max + ".00";
-            document.getElementById("grandtotals").innerHTML = "$ " + max + ".00";
-        }
-    </script>
     <script src="../js/jquery-3.2.1.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
