@@ -7,7 +7,7 @@
     <!-- Mobile Metas -->
     <meta name="viewport">
     <!-- Site Metas -->
-    <title>Spoura</title>
+    <title>Spoura - Cart</title>
     <meta name="keywords" content="Ecommerce, Spoura">
     <meta name="description" content="Ecommerce Site">
     <meta name="author" content="Matthew Harvey">
@@ -51,7 +51,7 @@
                                 <li>
                                     <div class="row">
                                         <div class="col-menu col-md-3">
-                                            <h1 class="m-b-20"><strong><br><a style="color: rgb(33, 117, 165);" href="https://matthew-harvey.github.io/Ecommerce/mens"><u>Men's Home</u></a></strong></h1>
+                                            <h1 class="m-b-20"><strong><br><a style="color: rgb(33, 117, 165);" href="https://matthew-harvey.github.io/Ecommerce/mens"><u>Mens Home</u></a></strong></h1>
                                             <h6></h6>
                                             <h5></h5>
                                             <h6 class="title">Newest</h6>
@@ -113,7 +113,7 @@
                                 <li>
                                     <div class="row">
                                         <div class="col-menu col-md-3">
-                                            <h1 class="m-b-20"><strong><br><a style="color: rgb(33, 117, 165);" href="https://matthew-harvey.github.io/Ecommerce/womens"><u>Women's Home</u></a></strong></h1>
+                                            <h1 class="m-b-20"><strong><br><a style="color: rgb(33, 117, 165);" href="https://matthew-harvey.github.io/Ecommerce/womens"><u>Womens Home</u></a></strong></h1>
                                             <h6></h6>
                                             <h5></h5>
                                         </div>
@@ -122,12 +122,12 @@
                                             <h6 class="title">Clothing</h6>
                                                 <ul class="menu-col">
                                                     <li><a href="https://matthew-harvey.github.io/Ecommerce/womens/shop/">All Clothing</a></li>
-                                                    <li><a href="https://matthew-harvey.github.io/Ecommerce/womens/shop/">Jackets</a></li>
-                                                    <li><a href="https://matthew-harvey.github.io/Ecommerce/womens/shop/">Shirts</a></li>
-                                                    <li><a href="https://matthew-harvey.github.io/Ecommerce/womens/shop/">Sweaters / Hoodies</a></li>
-                                                    <li><a href="https://matthew-harvey.github.io/Ecommerce/womens/shop/">Dresses</a></li>
-                                                    <li><a href="https://matthew-harvey.github.io/Ecommerce/womens/shop/">Jeans</a></li>
-                                                    <li><a href="https://matthew-harvey.github.io/Ecommerce/womens/shop/">Trousers</a></li>
+                                                    <li><a href="https://matthew-harvey.github.io/Ecommerce/womens/shop/?filter=shoes">Shoes</a></li>
+                                                    <li><a href="https://matthew-harvey.github.io/Ecommerce/womens/shop/?filter=tshirts">Shirts</a></li>
+                                                    <li><a href="https://matthew-harvey.github.io/Ecommerce/womens/shop/?filter=sweatshirts">Sweaters / Hoodies</a></li>
+                                                    <li><a href="https://matthew-harvey.github.io/Ecommerce/womens/shop/?filter=dresses">Dresses</a></li>
+                                                    <li><a href="https://matthew-harvey.github.io/Ecommerce/womens/shop/?filter=jeans">Jeans</a></li>
+                                                    <li><a href="https://matthew-harvey.github.io/Ecommerce/womens/shop/?filter=trousers">Trousers</a></li>
                                                 </ul>
                                         </div>
                                         <!-- end col-3 -->
@@ -285,15 +285,19 @@
 
                 var imgnow = document.createElement("img");
                 imgnow.classList.add('img-fluid');
-                imgnow.style.width = "120px"
+                imgnow.style.width = "100px"
                 imgnow.style.height = "150px"
                 imgnow.src = itemimg
                 tdunder.appendChild(imgnow);
 
                 var tdname = document.createElement("td");
                 tdname.classList.add('name-pr');
-                tdname.innerHTML = itemtitle
                 cartnumber.appendChild(tdname);
+
+                var namelink = document.createElement("a");
+                namelink.href = "https://matthew-harvey.github.io/Ecommerce/shopping/products/" + "?id=" + itemid
+                namelink.innerHTML = itemtitle
+                tdname.appendChild(namelink);
 
                 var tdsize = document.createElement("td");
                 tdsize.classList.add('size-pr');
@@ -320,9 +324,14 @@
                 quantinput.classList.add('c-input-text');
                 quantinput.onchange = function () {
 
-                    subtotal = subtotal - parseFloat(String(itemprice.substring(1)))
-                    subtotalout.innerHTML = "£" + subtotal
-                    grandtotals.innerHTML = "£" + subtotal
+                    if (itemquant > quantinput.value) {
+                        subtotal = subtotal - parseFloat(String(itemprice.substring(1)))
+                    }
+                    else {
+                        subtotal = subtotal + parseFloat(String(itemprice.substring(1)))
+                    }
+                    subtotalout.innerHTML = "£" + subtotal.toFixed(2)
+                    grandtotals.innerHTML = "£" + subtotal.toFixed(2)
 
                     itemquant = quantinput.value
                     let itemarr = [itemid, itemtitle, itemsize, itemquant, itemprice, itemimg]
@@ -356,10 +365,10 @@
                 removebuttoni.classList.add('fas');
                 removebutton.appendChild(removebuttoni);
 
-                subtotal = parseFloat(String(itemprice.substring(1))) * itemquant + subtotal
+                subtotal = (parseFloat(String(itemprice.substring(1))) * quantinput.value) + subtotal
             });
-            subtotalout.innerHTML = "£" + subtotal
-            grandtotals.innerHTML = "£" + subtotal
+            subtotalout.innerHTML = "£" + subtotal.toFixed(2)
+            grandtotals.innerHTML = "£" + subtotal.toFixed(2)
         }
         
     </script>
