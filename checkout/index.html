@@ -208,7 +208,7 @@
                 var itemimg = itemarray[5];
                 var itemsize = itemarray[2];
                 var cartnumberhold = "cart" + itemid
-                subtotal = subtotal + parseFloat(String(itemprice.substring(1)))
+                subtotal = subtotal + (parseFloat(String(itemprice.substring(1)))* itemquant)
 
                 var cartnumber = document.createElement("div");
                 cartnumber.classList.add('media');
