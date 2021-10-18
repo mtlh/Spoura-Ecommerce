@@ -232,9 +232,9 @@
                 spandiv.innerHTML = "Price: " + itemprice + "  Qty: " + itemquant + "  Size: " + itemsize
                 mediabody.appendChild(spandiv);
             });
-            ordertotal.innerHTML = "£" + subtotal
+            ordertotal.innerHTML = "£" + subtotal.toFixed(2)
             grandtotal = subtotal
-            alltotal.innerHTML = "£" + subtotal
+            alltotal.innerHTML = "£" + subtotal.toFixed(2)
         }
         
     </script>
