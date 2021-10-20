@@ -269,8 +269,8 @@
                     var count = 1;
                     var idnumhold = localStorage.getItem("idtemphold").toString()
                     Object.keys(localStorage).forEach(function(key){
-                        console.log(localStorage.getItem(key)[0].toString(), idnumhold.toString())
-                        if (localStorage.getItem(key)[0].toString() == idnumhold.toString()) {
+                        console.log(localStorage.getItem(key).toString(), idnumhold.toString())
+                        if (localStorage.getItem(key).toString() == idnumhold.toString()) {
                             document.getElementById("cartadd").style.backgroundColor = "#FF0000";
                             document.getElementById("cartadd").innerText = "Remove From Cart";
                             count = 0
