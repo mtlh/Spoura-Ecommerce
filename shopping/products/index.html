@@ -189,7 +189,7 @@
             const urlParams = new URLSearchParams(queryString);
             if (urlParams.has("id") == true) {
                 var product = urlParams.get('id');
-                var idnumber = product
+                var idnumber = product.toString()
                 var name = ids[product][1]
                 var imglink = ids[product][0]
                 var cost = ids[product][2]

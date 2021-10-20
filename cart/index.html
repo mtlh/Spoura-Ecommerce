@@ -195,12 +195,12 @@
                 var itemarray = localStorage.getItem(key);
                 itemarray = itemarray.split(",")
 
-                var itemid = itemarray[0]
+                var itemid = itemarray[0].toString();
                 var itemquant = itemarray[3];
                 var itemtitle = itemarray[1];
                 var itemprice = itemarray[4];
                 var itemimg = itemarray[5];
-                var itemsize = itemarray[2];
+                var itemsize = itemarray[2].toString();
                 var cartnumberhold = "cart" + itemid
 
                 var cartnumber = document.createElement("tr");
@@ -227,10 +227,50 @@
                 namelink.innerHTML = itemtitle
                 tdname.appendChild(namelink);
 
-                var tdsize = document.createElement("td");
-                tdsize.classList.add('size-pr');
-                tdsize.innerHTML = itemsize
-                cartnumber.appendChild(tdsize);
+                var selsize = document.createElement("select");
+                selsize.classList.add('show-tick');
+                selsize.classList.add('form-control');
+                cartnumber.appendChild(selsize);
+                var opt1 = document.createElement("option");
+                opt1.value = "XS"
+                if ("XS" == itemsize) {
+                    opt1.selected="selected"
+                }
+                opt1.innerHTML = "XS"
+                selsize.appendChild(opt1);
+                var opt2 = document.createElement("option");
+                opt2.value = "S"
+                if ("S" == itemsize) {
+                    opt2.selected="selected"
+                }
+                opt2.innerHTML = "S"
+                selsize.appendChild(opt2);
+                var opt3 = document.createElement("option");
+                opt3.value = "M"
+                if ("M" == itemsize) {
+                    opt3.selected="selected"
+                }
+                opt3.innerHTML = "M"
+                selsize.appendChild(opt3);
+                var opt4 = document.createElement("option");
+                opt4.value = "L"
+                if ("L" == itemsize) {
+                    opt4.selected="selected"
+                }
+                opt4.innerHTML = "L"
+                selsize.appendChild(opt4);
+                var opt5 = document.createElement("option");
+                opt5.value = "XL"
+                if ("XL" == itemsize) {
+                    opt5.selected="selected"
+                }
+                opt5.innerHTML = "XL"
+                selsize.appendChild(opt5);
+                selsize.onchange = function () {
+                    itemsize = selsize.value
+                    let itemarr = [itemid, itemtitle, itemsize, itemquant, itemprice, itemimg]
+                    localStorage.setItem(itemid, itemarr)
+                }
 
                 var tdprice = document.createElement("td");
                 tdprice.classList.add('price-pr');
