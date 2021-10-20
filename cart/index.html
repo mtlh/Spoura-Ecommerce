@@ -192,6 +192,7 @@
     <script>
         window.onload = function () {
             var subtotal = 0
+            localStorage.removeItem("idtemphold")
             Object.keys(localStorage).forEach(function(key){
                 var itemarray = localStorage.getItem(key);
                 itemarray = itemarray.split(",")
