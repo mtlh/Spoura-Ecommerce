@@ -11,7 +11,15 @@
 
     <!-- Site Metas -->
     <title id="topname">Spoura Product</title>
-    <script>localStorage.setItem("idtemphold", "N/A")</script>
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+            if (urlParams.has("id") == true) {
+                var product = urlParams.get('id');
+                var idnumber = product.toString()
+                localStorage.setItem("itemtemphold", idnumber)
+            }
+    </script>
     <meta name="keywords" content="Ecommerce, Spoura">
     <meta name="description" content="Ecommerce Site">
     <meta name="author" content="Matthew Harvey">
