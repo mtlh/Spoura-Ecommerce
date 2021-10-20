@@ -11,7 +11,7 @@
 
     <!-- Site Metas -->
     <title id="topname">Spoura Product</title>
-    <script>localStorage.setItem("idtemphold", "0")</script>
+    <script>localStorage.setItem("idtemphold", "N/A")</script>
     <meta name="keywords" content="Ecommerce, Spoura">
     <meta name="description" content="Ecommerce Site">
     <meta name="author" content="Matthew Harvey">
@@ -261,6 +261,7 @@
                     var count = 1;
                     var idnumhold = localStorage.getItem("idtemphold").toString()
                     Object.keys(localStorage).forEach(function(key){
+                        console.log(localStorage.getItem(key)[0].toString(), idnumhold.toString())
                         if (localStorage.getItem(key)[0].toString() == idnumhold.toString()) {
                             document.getElementById("cartadd").style.backgroundColor = "#FF0000";
                             document.getElementById("cartadd").innerText = "Remove From Cart";
