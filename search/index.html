@@ -176,7 +176,7 @@
     <!-- End Top Search -->
 
     <div class="title-all text-center">
-        <input id="searching" class="text-center" type="text" placeholder="Search.." style="margin: 50px;" width="100%" height="100%">
+        <input id="searching" onkeyup="searchhide()" class="text-center" type="text" placeholder="Search.." style="margin: 50px;" width="100%" height="100%">
     </div>
 
     <div class="container">
@@ -194,6 +194,7 @@
             var price = objnum[2]
 
             var cont = document.createElement("div");
+            cont.id = "itemcontainer" + counts.toString()
             cont.classList.add("col-lg-3");
             cont.classList.add("col-md-6");
             cont.classList.add("single-product-details");
@@ -213,6 +214,7 @@
             conta.appendChild(imgnow);
 
             var titlecont = document.createElement("h3");
+            titlecont.id = "itemtitle" + counts.toString()
             titlecont.innerHTML = name.toString();
             conta.appendChild(titlecont);
 
@@ -223,6 +225,26 @@
             counts++
 
         });
+
+        function searchhide() {
+          var inputs = document.getElementById('searching');
+          var filter = inputs.value.toUpperCase();
+        
+          // Loop through all list items, and hide those who don't match the search query
+
+          for (i = 0; i < ids.length; i++) {
+            var titleid = "itemtitle" + i.toString()
+            var gettitle = document.getElementById(titleid)
+            var getname = gettitle.innerHTML.toString()
+            var itemcontainer = "itemcontainer" + i.toString()
+            var getcontainer = document.getElementById(itemcontainer)
+            if (getname.toUpperCase().indexOf(filter) > -1) {
+                getcontainer.style.display = "";
+            } else {
+                getcontainer.style.display = "none";
+            }
+          }
+        }
 
     </script>
 
