@@ -176,191 +176,55 @@
     <!-- End Top Search -->
 
     <div class="title-all text-center">
-        <input class="text-center" type="text" placeholder="Search.." style="margin: 50px;" width="100%" height="100%">
+        <input id="searching" class="text-center" type="text" placeholder="Search.." style="margin: 50px;" width="100%" height="100%">
+    </div>
+
+    <div class="container">
+        <div id="base" class="row">
+
+        </div>
     </div>
 
     <script>
+        var counts = 0
         var ids = [["mens_store/mens_casualcollection.jpg", "Casual Collection", "£79.99"], ["mens_store/mens_beachcollection.jpg", "Beach Collection", "£64.99"], ["mens_store/mens_tshirt1.jpg", "Colour T-Shirts (5 pack)", "£46.99"], ["mens_store/mens_hoodie1.jpg", "Black Embroided Hoodie", "£53.99"], ["mens_store/mens_shoes1.jpg", "Nike Trainers (Sizes 8-12)", "£46.99"], ["mens_store/mens_shorts1.jpg", "Patterned Shorts", "£34.99"], ["mens_store/mens_wallet1.jpg", "Plain Black Wallet", "£14.99"], ["mens_store/mens_watch1.jpg", "Basic Clean Dark Watch", "£32.99"], ["mens_store/mens_sunglasses1.jpg", "Storm Sunglasses", "£26.99"], ["mens_store/mens_shorts2.jpg", "Nike Shorts + Trainers 2 Pack", "£69.99"], ["mens_store/mens_trousers1.jpg", "Slim Fit Suit Trousers", "£49.99"], ["mens_store/mens_partycollection.jpg", "Party Collection", "£89.99"], ["mens_store/mens_summercollection.jpg", "Summer Collection", "£73.99"], ["mens_store/mens_shoes2.jpg", "Adidas Casual Footwear", "£39.99"], ["mens_store/mens_wallet2.jpg", "Branded Black Wallet", "£36.99"], ["mens_store/mens_watch2.jpg", "Bronze Style Watch", "£32.99"], ["mens_store/mens_tshirt2.jpg", "Boss 3 Pack T-Shirts", "£64.99"], ["mens_store/mens_fragarances1.jpg", "Signature Fragarance", "£18.99"], ["mens_store/mens_tshirt3.jpg", "Grey Metalica T-Shirt", "£24.99"], ["mens_store/mens_fragarances2.jpg", "L'Homme Fragarance", "£12.99"], ["mens_store/mens_jeans1.jpg", "Regular Fit Blue Worn Jeans", "£32.99"], ["mens_store/mens_bag1.jpg", "Styled Backpack (Up to 10kg limit)", "£26.99"], ["mens_store/mens_hoodie2.jpg", "Nike Middle Zip Hoodie", "£41.99"], ["mens_store/mens_bag2.jpg", "Lyle & Scott Small Pack", "£23.99"], ["mens_store/mens_belt1.jpg", "Boss Belt", "£25.99"], ["mens_store/mens_suit1.jpg", "Full Trim Suit", "£99.99"], ["mens_store/mens_sunglasses3.jpg", "Spoura Set Sunglasses", "£17.99"], ["mens_store/mens_bag4.jpg", "Underarmour Carry-On Bag", "£28.99"], ["mens_store/mens_belt2.jpg", "Tommy Branded Belt", "£42.99"], ["mens_store/mens_cosycollection.jpg", "Cosy Collection", "£66.99"], ["mens_store/mens_jeans2.jpg", "Slim Fit Blue Jeans", "£46.99"], ["mens_store/mens_shirt1.jpg", "Light Blue Plain Shirt", "£19.99"], ["mens_store/mens_shirt2.jpg", "Crest Dark Blue Shirt", "£29.99"], ["mens_store/mens_suit2.jpg", "Dark Blue Waistcoast", "£40.99"], ["mens_store/mens_sunglasses2.jpg", "Sun Protect Glasses", "£20.99"], ["mens_store/mens_watch3.jpg", "Red & Blue Match Watch", "£22.99"], ["womens_store/animalprintskirt.jpg", "Animal Print Skirt", "£29.99"], ["womens_store/beachcollection.jpg", "Beach Collection", "£57.99"], ["womens_store/blackflats.jpg", "Black Flat Shoes", "£30.99"], ["womens_store/blackheels.jpg", "Black Heel Shoes", "£26.99"], ["womens_store/blockjumper.jpg", "Block Jumper", "£22.99"], ["womens_store/bracelet.jpg", "Infinite Bracelet", "£13.49"], ["womens_store/camodress.jpg", "Camo Style Dress", "£22.29"], ["womens_store/casualwearcollection.jpg", "Casual Wear Collection", "£52.99"], ["womens_store/chinoshorts.jpg", "Shortcut Chino Shorts", "£19.99"], ["womens_store/converseblack.jpg", "MonoBlack Converse", "£39.99"], ["womens_store/croppedjeans.jpg", "Cropped Jeans", "23.99"], ["womens_store/dayoutcollection.jpg", "DayOut Collection", "£65.99"], ["womens_store/denimjeans.jpg", "Denim Jeans", "£23.39"], ["womens_store/denimshorts.jpg", "Denim Shorts", "£19.79"], ["womens_store/dotshirt.jpg", "Dot Styled Shirt", "£16.99"], ["womens_store/dresscollection.jpg", "Dress Collection", "£32.99"], ["womens_store/floraldress.jpg", "Floral Dress", "£27.24"], ["womens_store/infinitebandle.jpg", "Signature Bandle", "£12.99"], ["womens_store/leatherbag.jpg", "Leather Bag", "£22.25"], ["womens_store/miniskirt.jpg", "Black Miniskirt", "£20.99"], ["womens_store/navycardigan.jpg", "Navy Cardigan", "£30.99"], ["womens_store/necklace.jpg", "3 Piece Necklace", "£25.52"], ["womens_store/yellowpurse.jpg", "Yellow Purse", "£21.99"], ["womens_store/nikegreysweat.jpg", "Nike Grey Sweatshirt", "£53.99"], ["womens_store/orangezip.jpg", "Orange Zip Jacket", "£25.99"], ["womens_store/pinkbag.jpg", "Pink Carry Bag", "£22.99"], ["womens_store/pinkscarf.jpg", "Pink Scarf", "£17.99"], ["womens_store/pinkshirt.jpg", "Basic Pink T-Shirt", "£12.19"], ["womens_store/rainbowgraphictee.jpg", "Rainbow Graphic T-Shirt", "£17.99"], ["womens_store/rosetonesunglasses.jpg", "RoseEye Sunglasses", "£19.99"], ["womens_store/silverplats.jpg", "Silver Platform Boots", "£45.99"], ["womens_store/summercollection.jpg", "Summer Collection", "£73.23"], ["womens_store/sunglassesaurelia.jpg", "Aurelia Sunglasses", "£23.99"], ["womens_store/superdrycollection.jpg", "SuperDry Collection", "£60.99"], ["womens_store/tortoisesunglasses.jpg", "Tortiose Sunglasses", "£23.90"], ["womens_store/trilbyhat.jpg", "Trilby Hat", "£16.70"]]
+        ids.forEach(objnum => {
+            var imglink = objnum[0]
+            var name = objnum[1]
+            var price = objnum[2]
+
+            var cont = document.createElement("div");
+            cont.classList.add("col-lg-3");
+            cont.classList.add("col-md-6");
+            cont.classList.add("single-product-details");
+            base.appendChild(cont);
+
+            var conta = document.createElement("a");
+            conta.href = "https://matthew-harvey.github.io/Ecommerce/shopping/products/?id=" + counts.toString()
+            cont.appendChild(conta);
+
+            var imgnow = document.createElement("img");
+            imgnow.classList.add('img-fluid');
+            imgnow.style.width = "224px"
+            imgnow.style.height = "330px"
+            imgnow.style.paddingBottom = "15px"
+            imgnow.style.paddingTop = "15px"
+            imgnow.src = "../images/" + imglink.toString()
+            conta.appendChild(imgnow);
+
+            var titlecont = document.createElement("h3");
+            titlecont.innerHTML = name.toString();
+            conta.appendChild(titlecont);
+
+            var pricecont = document.createElement("h3");
+            pricecont.innerHTML = price.toString();
+            conta.appendChild(pricecont);
+
+            counts++
+
+        });
+
     </script>
-
-    <br></br>
-    <br></br>
-
-    <div class="container">
-        <div class="title-all text-center">
-            <h1>Best of Spoura</h1>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-12 col-sm-12">
-                <a href="https://matthew-harvey.github.io/Ecommerce/shopping/products"><img src="../images/small_img/woman-holding-blue-colored-smoke-2872754.jpg" class="img-fluid" alt="Image"></a>
-                <br></br>
-                <a href="https://matthew-harvey.github.io/Ecommerce/shopping/products"><img src="../images/small_img/woman-standing-wearing-red-dress-2609741.jpg" class="img-fluid" alt="Image"></a>
-            </div>
-            <div class="col-lg-4 col-md-12 col-sm-12">
-                <a href="https://matthew-harvey.github.io/Ecommerce/shopping/products"><img src="../images/small_img/woman-in-black-and-white-plaid-dress-shirt-and-blue-denim-3800744.jpg" class="img-fluid" alt="Image"></a>
-                <br></br>
-                <a href="https://matthew-harvey.github.io/Ecommerce/shopping/products"><img src="../images/small_img/photo-of-man-wearing-denim-jacket-4674396.jpg" class="img-fluid" alt="Image" width="98.6%"></a>
-            </div>
-            <div class="col-lg-4 col-md-12 col-sm-12">
-                <a href="https://matthew-harvey.github.io/Ecommerce/shopping/products"><img src="../images/small_img/man-wearing-black-hat-and-black-coat-157675.jpg" class="img-fluid" alt="Image"></a>
-                <br></br>
-                <a href="https://matthew-harvey.github.io/Ecommerce/shopping/products"><img src="../images/small_img/men-s-black-leather-jacket-1813947.jpg" class="img-fluid" alt="Image" width="98.6%"></a>
-            </div>
-        </div>
-    </div>
-
-    <br></br>
-
-    <div class="container" style="margin-left: 0px; margin-right: 0px; margin: auto;">
-        <div class="row">
-            <div class="col-lg-2 col-md-2 col-sm-2">
-                <a href="https://www.adidas.co.uk/"><img src="../images/adidas-4.svg" class="img-fluid" alt="Image"></a>
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2"">
-                <a href="https://www.reebok.co.uk/"><img src="../images/reebok-5.svg" class="img-fluid" alt="Image"></a>
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2">
-                <a href="https://www.jdsports.co.uk/"><img src="../images/jd-sports.svg" class="img-fluid" alt="Image"></a>
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2">
-                <a href="https://www.lacoste.com/"><img src="../images/lacoste-1.svg" class="img-fluid" alt="Image"></a>
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2">
-                <a href="https://eu.puma.com/uk/en/home"><img src="../images/puma-2.svg" class="img-fluid" alt="Image"></a>
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2" style="margin-top: 25px;">
-                <a href="https://www.armani.com/"><img src="../images/giorgio-armani-2.svg" class="img-fluid" alt="Image"></a>
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2">
-                <a href="https://www.versace.com/"><img src="../images/versace.svg" class="img-fluid" alt="Image"></a>
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2" style="margin-top: 7px;">
-                <a href="https://www.fredperry.com/"><img src="../images/fred-perry.svg" class="img-fluid" alt="Image"></a>
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2">
-                <a href="https://shop.diesel.com/"><img src="../images/diesel-3.svg" class="img-fluid" alt="Image"></a>
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2">
-                <a href="http://www.denialcc.com/"><img src="../images/denial-clothing.svg" class="img-fluid" alt="Image"></a>
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2">
-                <a href="https://www.next.co.uk/"><img src="../images/next-1.svg" class="img-fluid" alt="Image"></a>
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2">
-                <a href="https://www.calvinklein.co.uk/"><img src="../images/calvin-klein-1.svg" class="img-fluid" alt="Image"></a>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Start Products  -->
-    <div class="products-box">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="title-all text-center">
-                        <h1>New Collections</h1>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row special-list">
-                <div class="col-lg-3 col-md-6 special-grid top-featured">
-                    <div class="products-single fix">
-                        <div class="box-img-hover">
-                            <a href="https://matthew-harvey.github.io/Ecommerce/shopping/products"><img src="../images/small_img/shallow-focus-photo-of-man-in-black-crew-neck-t-shirt-3200073.jpg" class="img-fluid" alt="Image"></a>
-                        </div>
-                        <div class="why-text">
-                            <h4>Summer Mix Set - 2019</h4>
-                            <h5><a href="https://matthew-harvey.github.io/Ecommerce/shopping/products/">View Now!</a></h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 special-grid top-featured">
-                    <div class="products-single fix">
-                        <div class="box-img-hover">
-                            <a href="https://matthew-harvey.github.io/Ecommerce/shopping/products"><img src="../images/small_img/woman-wearing-white-and-blue-dress-3195981.jpg" class="img-fluid" alt="Image"></a>
-                        </div>
-                        <div class="why-text">
-                            <h4>Blue Pattern Dress & Blazer</h4>
-                            <h5><a href="https://matthew-harvey.github.io/Ecommerce/shopping/products/">Buy Today!</a></h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 special-grid top-featured">
-                    <div class="products-single fix">
-                        <div class="box-img-hover">
-                            <a href="https://matthew-harvey.github.io/Ecommerce/shopping/products"><img src="../images/small_img/woman-standing-indoor-1926769.jpg" class="img-fluid" alt="Image"></a>
-                        </div>
-                        <div class="why-text">
-                            <h4>Autumn Set 2020</h4>
-                            <h5><a href="https://matthew-harvey.github.io/Ecommerce/shopping/products/">Available Now!</a></h5>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 special-grid top-featured">
-                    <div class="products-single fix">
-                        <div class="box-img-hover">
-                            <a href="https://matthew-harvey.github.io/Ecommerce/shopping/products"><img src="../images/small_img/man-wearing-blue-crew-neck-t-shirt-2825872.jpg" class="img-fluid" alt="Image"></a>
-                        </div>
-                        <div class="why-text">
-                            <h4>Blue & Black Blended Outfit</h4>
-                            <h5><a href="https://matthew-harvey.github.io/Ecommerce/shopping/products/">On Sale Now!</a></h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Products  -->
-
-    <div class="container" style="margin-left: 0px; margin-right: 0px; margin: auto;">
-        <div class="title-all text-center">
-            <h2>Shop Now!</h2>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-3">
-                <a href="https://matthew-harvey.github.io/Ecommerce/checkout"><img src="../images/union-pay.svg" class="img-fluid" alt="Image" width="80%"></a>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3">
-                <a href="https://matthew-harvey.github.io/Ecommerce/checkout"><img src="../images/apple-pay.svg" class="img-fluid" alt="Image" width="80%"></a>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3">
-                <a href="https://matthew-harvey.github.io/Ecommerce/checkout"><img src="../images/google-wallet.svg" class="img-fluid" alt="Image" width="50%" height="25%"></a>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3">
-                <a href="https://matthew-harvey.github.io/Ecommerce/checkout"><img src="../images/paypal-icon.svg" class="img-fluid" alt="Image" width="40%" height="55%"></a>
-            </div>
-        </div>
-    </div>
-
-    <br></br>
-    <br></br>
-    
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-12 col-sm-12">
-                <div class="title-all text-center">
-                    <h1><a href="https://matthew-harvey.github.io/Ecommerce/mens">Mens</a></h1>
-                </div>
-                <a href="https://matthew-harvey.github.io/Ecommerce/mens"><img src="../images/small_img/photography-of-guy-wearing-yellow-hoodie-1183266.jpg" class="img-fluid" alt="Image"></a>  
-            </div>
-            <div class="col-lg-4 col-md-12 col-sm-12">
-                <div class="title-all text-center">
-                    <h1><a href="https://matthew-harvey.github.io/Ecommerce/womens">Womens</a></h1>
-                </div>
-                <a href="https://matthew-harvey.github.io/Ecommerce/womens/"><img src="../images/small_img/photo-of-woman-in-black-and-white-top-and-brown-trousers-3763949.jpg" class="img-fluid" alt="Image"></a>
-            </div>
-            <div class="col-lg-4 col-md-12 col-sm-12">
-                <div class="title-all text-center">
-                    <h1><a href="https://matthew-harvey.github.io/Ecommerce/kids">Kids</a></h1>
-                </div>
-                <a href="https://matthew-harvey.github.io/Ecommerce/kids/"><img src="../images/small_img/girl-wearing-a-gray-headwear-3662975.jpg" class="img-fluid" alt="Image"></a>
-            </div>
-        </div>
-    </div>
 
     <br></br>
     <br></br>
