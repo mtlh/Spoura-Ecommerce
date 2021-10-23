@@ -217,6 +217,27 @@
             document.getElementById("iddisplay").innerHTML = idnumber
             localStorage.setItem("idtemphold", idnumber)
         }
+
+        function refreshsize (newsize) {
+            try {
+                let itemarr = [iddisplay.innerText, title.innerText, newsize, quantity.value, price.innerText, mainimg.src]
+                var idnum = localStorage.getItem("idtemphold").toString()
+                localStorage.setItem(idnum, itemarr)
+            }
+            finally {
+                newsize = newsize.toString()
+            }
+        }
+        function refreshquant (newquant) {
+            try {
+                let itemarr = [iddisplay.innerText, title.innerText, basic.value, newquant, price.innerText, mainimg.src]
+                var idnum = localStorage.getItem("idtemphold").toString()
+                localStorage.setItem(idnum, itemarr)
+            }
+            finally {
+                newquant = newquant.toString()
+            }
+        }
     </script>
     <!-- Start Shop Detail  -->
     <div class="shop-detail-box-main">
@@ -239,7 +260,7 @@
                                     <li>
                                         <div class="form-group size-st">
                                             <label class="size-label">Size</label>
-                                            <select id="basic" class="selectpicker show-tick form-control">
+                                            <select id="basic" class="selectpicker show-tick form-control" onchange="refreshsize(basic.value)">
                                     <option value="XS">XS</option>
 									<option value="S">S</option>
 									<option value="M">M</option>
@@ -252,7 +273,7 @@
                                     <li>
                                         <div class="form-group quantity-box">
                                             <label class="control-label">Quantity</label>
-                                            <input id="quantity" class="form-control" value="1" min="1" max="20" type="number">
+                                            <input id="quantity" class="form-control" value="1" min="1" max="20" type="number" onchange="refreshquant (quantity.value)">
                                         </div>
                                     </li>
                                 </ul>
@@ -263,6 +284,8 @@
                                         <a id="cartview" class="btn" data-fancybox-close="" style="background-color: #0474bc; color: white;" href="https://matthew-harvey.github.io/Ecommerce/cart/">View Cart</a>
                                     </div>
                                 </div>
+
+                                <br></br>
                     </div>
                 </div>
                 <script>
@@ -298,6 +321,7 @@
                         }
                     }
                     document.getElementById("cartadd").addEventListener("click", setColor);
+                    
                 </script>
             </div>
         </div>
