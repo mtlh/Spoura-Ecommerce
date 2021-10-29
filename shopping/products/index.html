@@ -229,6 +229,10 @@
             }
         }
         function refreshquant (newquant) {
+            if (newquant > 20) {
+                quantity.value = 20
+                newquant = 20
+            }
             try {
                 let itemarr = [iddisplay.innerText, title.innerText, basic.value, newquant, price.innerText, mainimg.src]
                 var idnum = localStorage.getItem("idtemphold").toString()
@@ -273,7 +277,7 @@
                                     <li>
                                         <div class="form-group quantity-box">
                                             <label class="control-label">Quantity</label>
-                                            <input id="quantity" class="form-control" value="1" min="1" max="20" type="number" onchange="refreshquant (quantity.value)">
+                                            <input id="quantity" type="number" class="form-control" value="1" min="1" max="20" onchange="refreshquant (quantity.value)">
                                         </div>
                                     </li>
                                 </ul>

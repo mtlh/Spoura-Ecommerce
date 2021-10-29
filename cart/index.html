@@ -288,11 +288,15 @@
                 quantinput.type = "number"
                 quantinput.size = "4"
                 quantinput.value = itemquant
-                quantinput.min = "0"
-                quantinput.max = "10"
+                quantinput.min = "1"
+                quantinput.max = "20"
                 quantinput.step = "1"
                 quantinput.classList.add('c-input-text');
                 quantinput.onchange = function () {
+
+                    if (quantinput.value > 20) {
+                        quantinput.value = 20
+                    }
 
                     if (itemquant > quantinput.value) {
                         subtotal = subtotal - parseFloat(String(itemprice.substring(1)))
