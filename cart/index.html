@@ -331,7 +331,7 @@
                 cartnumber.appendChild(tdremove);
 
                 var removebutton = document.createElement("button");
-                removebutton.onclick = function () { cartnumber.remove(); localStorage.removeItem(itemid);}
+                removebutton.onclick = function () { cartnumber.remove(); localStorage.removeItem(itemid); subtotal = subtotal - (itemprice * itemquant); grandtotals.innerHTML = "£" + subtotal.toFixed(2); subtotalout.innerHTML = "£" + subtotal.toFixed(2)}
                 tdremove.appendChild(removebutton);
 
                 var removebuttoni = document.createElement("i");
