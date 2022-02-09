@@ -331,7 +331,7 @@
                 cartnumber.appendChild(tdremove);
 
                 var removebutton = document.createElement("button");
-                removebutton.onclick = function () { cartnumber.remove(); localStorage.removeItem(itemid); subtotal = subtotal - (itemprice * itemquant); grandtotals.innerHTML = "£" + subtotal.toFixed(2); subtotalout.innerHTML = "£" + subtotal.toFixed(2)}
+                removebutton.onclick = function () { var itemprice2 = itemprice.substring(1); subtotal = subtotal - (itemprice2 * itemquant); grandtotals.innerHTML = "£" + subtotal.toFixed(2); subtotalout.innerHTML = "£" + subtotal.toFixed(2); cartnumber.remove(); localStorage.removeItem(itemid);}
                 tdremove.appendChild(removebutton);
 
                 var removebuttoni = document.createElement("i");
